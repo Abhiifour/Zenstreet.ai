@@ -188,17 +188,7 @@ return (
     {/* button */}
     <Dialog >
     {
-      terms ?      <DialogTrigger className="flex justify-center p-4 bg-slate-500 text-white rounded-lg cursor-pointer transition-all duration-500" onClick={()=>{
-        if(email && phone && pinCode && houseNumber && street && district && state && preference){
-            handleSubmit()
-        }   
-        else{
-            toast({
-                title: "Please fill all the fields",
-                description: "All fields are mandatory"
-            })
-        }
-      }}> 
+      terms ? <DialogTrigger className="flex justify-center p-4 bg-slate-500 text-white rounded-lg cursor-pointer transition-all duration-500" onClick={handleSubmit}> 
       Submit
   </DialogTrigger> : <DialogTrigger className="p-4 bg-slate-500 text-white rounded-lg cursor-pointer hidden" > </DialogTrigger>
     }
@@ -247,9 +237,9 @@ return (
         </div>
 
         <div className=" flex flex-col gap-4 text-[14px]">
-        <div>Preference : <span className="p-2 border rounded-lg text-[12px]">{data.preference}</span> </div>
-        <div>Internship : <span className="p-2 border rounded-lg text-[12px]">{data.internships}</span> </div>
-        <div>Open Source : <span className="p-2 border rounded-lg text-[12px]">{data.openSource}</span> </div>
+        {/* <div>Preference : <span className="p-2 border rounded-lg text-[12px]">{data.preference}</span> </div> */}
+        <div>Internship : <span className="p-2 border rounded-lg text-[12px]">{data.internships ? "yes" : "no"}</span> </div>
+        <div>Open Source : <span className="p-2 border rounded-lg text-[12px]">{data.openSource ? "yes" : "no"}</span> </div>
         
         </div>
         </div>
@@ -257,6 +247,7 @@ return (
             handleSubmit();
             toast({
                 title: "Form submitted 🎉",
+                description: "Your form has been submitted successfully",
                 
             })
         }}>Submit</button>
