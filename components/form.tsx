@@ -77,7 +77,10 @@ export default function Form(){
     }
 
 return (
-<div className="font-playfair min-h-screen sm:w-full" style={{ backgroundColor: themeState ? "white" : "black" }}>
+<motion.div className="font-playfair min-h-screen sm:w-full" style={{ backgroundColor: themeState ? "white" : "black" }}
+initial={{opacity:0}}
+animate={{opacity:1}}
+transition={{duration:1}}>
 <div style={{ width: `${progressWidth}%` }} className='h-1 bg-blue-500 transition-all duration-500 rounded-xl'></div>
 
 <div className="w-full flex items-center justify-center pt-16" style={{color: themeState ? "black" : "white", backgroundColor: themeState ? "white" : "black"}}>
@@ -261,6 +264,6 @@ return (
 </Tabs>
 </div>
   
-</div>
+</motion.div>
     )
 }
